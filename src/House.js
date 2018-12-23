@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Rating from './Rating';
 import Heart from 'react-feather/dist/icons/heart';
+import Rating from './Rating';
 
 import { TouchableOpacity, StyleSheet, View, Image, Text } from 'react-native';
 

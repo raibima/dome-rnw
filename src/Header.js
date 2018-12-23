@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { StyleSheet, Text, View } from 'react-native';
+import Search from 'react-feather/dist/icons/search';
+
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function Header(props) {
   return (
     <View style={styles.header}>
       <Text style={styles.textResult}>
         {`Result for `}
-        <Text style={[styles.textResult, styles.textQuery]}>
-          {props.query}
-        </Text>
+        <Text style={[styles.textResult, styles.textQuery]}>{props.query}</Text>
       </Text>
 
       {props.count && (
@@ -17,6 +17,10 @@ export default function Header(props) {
           {`Found ${props.count} result(s) in ${props.time}ms`}
         </Text>
       )}
+
+      <TouchableOpacity style={styles.searchIcon}>
+        <Search />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -40,4 +44,9 @@ const styles = StyleSheet.create({
   textFoundResult: {
     fontSize: 16,
   },
+  searchIcon: {
+    position: 'absolute',
+    right: 16,
+    top: 16
+  }
 });

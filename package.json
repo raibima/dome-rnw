@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-scroll-lock": "^2.6.1",
     "lodash.keyby": "^4.6.0",
     "lodash.sum": "^4.0.2",
     "lodash.uniq": "^4.5.0",
@@ -12,7 +13,7 @@
     "react-dom": "^16.7.0-alpha.2",
     "react-feather": "^1.1.5",
     "react-native-web": "^0.9.9",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^4.4.0-beta.6",
     "react-scripts": "2.1.1"
   },
   "scripts": {
