@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     padding: 16,
     width: '100%',
+    height: 72,
   },
   textResult: {
     fontSize: 16,
@@ -47,6 +48,6 @@ const styles = StyleSheet.create({
   searchIcon: {
     position: 'absolute',
     right: 16,
-    top: 16
-  }
+    top: 24,
+  },
 });
