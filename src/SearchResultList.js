@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 
+import FlatList from './FlatList';
 import House from './House';
 
-import { ActivityIndicator, StyleSheet, FlatList } from 'react-native';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 
 const PureHouse = React.memo(House);
 
@@ -19,23 +19,8 @@ export default function SearchResultList(props) {
     );
   }
 
-  const scrollRef = useRef();
-
-  useEffect(() => {
-    // overflow CSS property on HTML body is discarded
-    // in iOS. We need a way to prevent scroll focus from
-    // getting blurred from the ScrollView (by disabling further scroll
-    // when is already on the top)
-    const scrollableNode = scrollRef.current.getScrollableNode();
-    disableBodyScroll(scrollableNode);
-    return () => {
-      enableBodyScroll(scrollableNode);
-    };
-  }, []);
-
   return (
     <FlatList
-      ref={scrollRef}
       data={props.houses}
       keyExtractor={(item) => String(item.id)}
       initialNumToRender={3}
