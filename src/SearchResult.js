@@ -18,15 +18,18 @@ const styles = StyleSheet.create({
 export default function SearchResult(props) {
   const { q: searchQuery } = qs.parse(props.location.search);
 
-  const { status, result, time } = useAsync(() =>
-    getHouseListByKeyword(searchQuery)
+  const { status, result, time } = useAsync(
+    () => getHouseListByKeyword(searchQuery),
+    [searchQuery]
   );
 
   return (
     <View style={styles.page}>
       <Header
+        history={props.history}
         query={searchQuery}
-        time={status === 'DONE' ? time.toFixed(2) : '... '}
+        status={status}
+        time={status === 'DONE' ? time.toFixed(2) : null}
         count={status === 'DONE' ? result.length : null}
       />
 

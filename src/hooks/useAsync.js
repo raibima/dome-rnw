@@ -7,7 +7,7 @@ export const AsyncStatus = {
   ERROR: 'ERROR',
 };
 
-export default function useAsync(fn) {
+export default function useAsync(fn, keys = []) {
   const [state, dispatch] = useReducer(reducer, {
     status: AsyncStatus.IDLE,
     result: null,
@@ -37,7 +37,7 @@ export default function useAsync(fn) {
           },
         });
       });
-  }, []);
+  }, keys);
 
   return state;
 }
